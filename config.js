@@ -6,10 +6,8 @@ window.CONFIG = {
   // Título mostrado no topo do site
   titulo: "Campeonatos Nacionais — Séries 2026/27",
 
-  // Passe do modo edição.
-  // NOTA: isto é uma proteção simples (do lado do browser), não é segurança a sério.
-  // Serve para impedir que visitantes alterem por engano. MUDA o valor abaixo.
-  passe: "muda-esta-passe",
+  // Site só-leitura (público). A edição dos dados é feita no repositório
+  // (alterar os ficheiros em data/ e fazer push) — não há edição no browser.
 
   // Competições = Divisão × Escalão. Cada uma tem o seu ficheiro de dados e o seu formato.
   //
@@ -38,12 +36,6 @@ window.CONFIG = {
       formato: { tipo: "geografico", numSeries: 2, tamanhoSerie: 10, nomesSeries: ["Norte", "Sul"] } }
   ],
 
-  // Temas visuais — o utilizador escolhe no site (troca fácil). Para mudar o que aparece
-  // por omissão, altera "temaPorOmissao" para um dos id abaixo.
-  temaPorOmissao: "desportivo",
-  temas: [
-    { id: "desportivo", nome: "Desportivo", ficheiro: "temas/desportivo.css" },
-    { id: "editorial", nome: "Editorial", ficheiro: "temas/editorial.css" },
-    { id: "vivo", nome: "Vivo", ficheiro: "temas/vivo.css" }
-  ]
+  // Tema visual único: Editorial (definido no <link> do index.html: temas/editorial.css).
+  temaPorOmissao: "editorial"
 };

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Séries 2ª Divisão Nacional</title>
+  <title>Campeonatos Nacionais — Séries 2026/27</title>
   <link rel="stylesheet" href="temas/base.css" />
-  <link rel="stylesheet" id="folhaTema" href="temas/desportivo.css" />
+  <link rel="stylesheet" id="folhaTema" href="temas/editorial.css" />
 </head>
 <body>
   <header class="topo">
@@ -23,11 +23,6 @@
           <span>Divisão</span>
           <select id="seletorDivisao"></select>
         </label>
-        <label class="campo">
-          <span>Tema</span>
-          <select id="seletorTema"></select>
-        </label>
-        <button id="btnEditar" class="botao">🔒 Modo edição</button>
       </div>
     </div>
   </header>
@@ -39,33 +34,6 @@
 
     <!-- VISTA PÚBLICA -->
     <section id="vista" class="grelha-series"></section>
-
-    <!-- EDITOR (escondido até autenticar) -->
-    <section id="editor" class="editor escondido">
-      <div class="editor-barra">
-        <h2>Editar equipas — <span id="editorEscalao"></span></h2>
-        <div class="editor-acoes">
-          <button id="btnAdd" class="botao">＋ Adicionar equipa</button>
-          <button id="btnDescarregar" class="botao primario">⬇ Guardar ficheiro</button>
-          <button id="btnRepor" class="botao subtil">↺ Repor do ficheiro</button>
-          <button id="btnSair" class="botao subtil">Sair da edição</button>
-        </div>
-      </div>
-      <p class="editor-dica">
-        Edita, adiciona ou remove equipas. As séries recalculam sozinhas. Quando terminares carrega em
-        <strong>Guardar ficheiro</strong> — vai descarregar um <code>.json</code> que substitui o ficheiro em <code>data/</code>.
-      </p>
-      <div class="tabela-wrap">
-        <table id="tabelaEditor">
-          <thead>
-            <tr>
-              <th>Nome</th><th>Localização</th><th>Latitude</th><th>B</th><th>Ilha</th><th>Símbolo (URL)</th><th></th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
   </main>
 
   <footer class="rodape">

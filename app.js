@@ -9,40 +9,20 @@
   const state = {
     compId: C.competicoes[0].id,
     dados: {},        // compId -> { escalao, epoca, equipas: [] }
-    admin: false,
   };
 
   const comp = (id = state.compId) => C.competicoes.find((c) => c.id === id);
   const unico = (arr) => arr.filter((v, i) => arr.indexOf(v) === i);
 
   // ---------------------------------------------------------
-  // Carregamento de dados (ficheiro JSON, com edições locais por cima)
+  // Carregamento de dados (ficheiro JSON)
   // ---------------------------------------------------------
-  async function carregar(id, forcarFicheiro) {
-    if (!forcarFicheiro) {
-      const local = localStorage.getItem("edicao_" + id);
-      if (local) {
-        try {
-          const d = JSON.parse(local);
-          d._local = true;
-          state.dados[id] = d;
-          return d;
-        } catch (_) { /* ignora cache inválida */ }
-      }
-    }
+  async function carregar(id) {
     const resp = await fetch(comp(id).ficheiro + "?v=" + new Date().getTime());
     if (!resp.ok) throw new Error("Não foi possível ler " + comp(id).ficheiro);
     const json = await resp.json();
-    json._local = false;
     state.dados[id] = json;
-    localStorage.removeItem("edicao_" + id);
     return json;
-  }
-
-  function guardarLocal(id) {
-    const d = state.dados[id];
-    d._local = true;
-    localStorage.setItem("edicao_" + id, JSON.stringify({ escalao: d.escalao, epoca: d.epoca, equipas: d.equipas }));
   }
 
   // ---------------------------------------------------------
@@ -132,12 +112,12 @@
     }
 
     if (d.equipas.length === 0) {
-      avisos.innerHTML = `<div class="aviso info">Ainda não há equipas para <strong>${c.divisao} · ${c.escalao}</strong>. Entra em <strong>Modo edição</strong> para as adicionar.</div>`;
+      avisos.innerHTML = `<div class="aviso info">Ainda não há equipas para <strong>${c.divisao} · ${c.escalao}</strong>.</div>`;
       return;
     }
 
     if (c.formato.tipo !== "geografico") {
-      avisos.innerHTML = `<div class="aviso alerta">Formato da <strong>${c.divisao}</strong> ainda por definir. Mostro a lista ordenada de Norte → Sul; diz-me as regras e eu configuro as séries.</div>`;
+      avisos.innerHTML = `<div class="aviso alerta">Formato da <strong>${c.divisao}</strong> ainda por definir. Mostro a lista ordenada de Norte → Sul.</div>`;
       const sec = document.createElement("section");
       sec.className = "serie";
       sec.innerHTML = `<h2 style="background:${PALETA[0]}">${c.divisao} · ${c.escalao} — ${d.equipas.length} equipas</h2>` +
@@ -148,7 +128,7 @@
 
     const esperado = c.formato.numSeries * c.formato.tamanhoSerie;
     if (d.equipas.length !== esperado) {
-      avisos.innerHTML = `<div class="aviso alerta">Atenção: tens <strong>${d.equipas.length}</strong> equipas, mas o formato é <strong>${esperado}</strong> (${c.formato.numSeries}×${c.formato.tamanhoSerie}). As séries podem ficar desequilibradas.</div>`;
+      avisos.innerHTML = `<div class="aviso alerta">Atenção: ${d.equipas.length} equipas, mas o formato é <strong>${esperado}</strong> (${c.formato.numSeries}×${c.formato.tamanhoSerie}). As séries podem ficar desequilibradas.</div>`;
     }
 
     const { out, extra, nomes } = calcularSeries(d.equipas, c.formato);
@@ -189,7 +169,7 @@
 
   // slug do nome do clube -> nome de ficheiro do logótipo (logos/<slug>.png)
   function slug(s) {
-    return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
       .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
   }
 
@@ -206,113 +186,10 @@
       `<img src="${escapar(src)}" alt="" loading="lazy" onerror="this.remove()"></span>`;
   }
 
-  // ---------------------------------------------------------
-  // Render — editor
-  // ---------------------------------------------------------
-  function renderEditor() {
-    const c = comp();
-    const d = state.dados[state.compId];
-    $("#editorEscalao").textContent = c.divisao + " · " + c.escalao + " " + (d.epoca || "");
-    const tbody = $("#tabelaEditor tbody");
-    tbody.innerHTML = "";
-    d.equipas
-      .map((e) => e)
-      .sort((a, b) => b.latitude - a.latitude)
-      .forEach((e) => tbody.appendChild(linhaEditor(e)));
-  }
-
-  function linhaEditor(e) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td><input type="text" data-campo="nome" value="${escapar(e.nome)}"></td>
-      <td><input type="text" data-campo="localizacao" value="${escapar(e.localizacao)}"></td>
-      <td><input type="number" step="0.0000001" data-campo="latitude" value="${e.latitude}"></td>
-      <td class="centro"><input type="checkbox" data-campo="equipaB" ${e.equipaB ? "checked" : ""}></td>
-      <td class="centro"><input type="checkbox" data-campo="ilhas" ${e.ilhas ? "checked" : ""}></td>
-      <td><input type="text" data-campo="logo" value="${escapar(e.logo || "")}" placeholder="(opcional)"></td>
-      <td class="centro"><button class="remover" title="Remover">✕</button></td>`;
-
-    tr.querySelectorAll("input").forEach((input) => {
-      input.addEventListener("change", () => {
-        const campo = input.dataset.campo;
-        if (input.type === "checkbox") e[campo] = input.checked;
-        else if (campo === "latitude") e.latitude = parseFloat(input.value) || 0;
-        else e[campo] = input.value;
-        guardarLocal(state.compId);
-        renderVista();
-        atualizarContador();
-        if (campo === "latitude") renderEditor();
-      });
-    });
-
-    tr.querySelector(".remover").addEventListener("click", () => {
-      const d = state.dados[state.compId];
-      const pos = d.equipas.indexOf(e);
-      if (pos > -1) d.equipas.splice(pos, 1);
-      guardarLocal(state.compId);
-      renderEditor();
-      renderVista();
-      atualizarContador();
-    });
-    return tr;
-  }
-
-  // ---------------------------------------------------------
-  // Ações
-  // ---------------------------------------------------------
-  function descarregar() {
-    const d = state.dados[state.compId];
-    const limpo = {
-      escalao: d.escalao,
-      epoca: d.epoca,
-      equipas: d.equipas.map((e) => ({
-        nome: e.nome,
-        localizacao: e.localizacao,
-        latitude: e.latitude,
-        equipaB: !!e.equipaB,
-        ilhas: !!e.ilhas,
-        ...(e.logo ? { logo: e.logo } : {}),
-      })),
-    };
-    const blob = new Blob([JSON.stringify(limpo, null, 2) + "\n"], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = state.compId + ".json";
-    a.click();
-    URL.revokeObjectURL(a.href);
-  }
-
-  async function reporDoFicheiro() {
-    if (!confirm("Repor os dados a partir do ficheiro? Vais perder as edições locais não guardadas.")) return;
-    localStorage.removeItem("edicao_" + state.compId);
-    await carregar(state.compId, true);
-    renderEditor();
-    renderVista();
-    atualizarContador();
-  }
-
-  function entrarEdicao() {
-    if (state.admin) { sairEdicao(); return; }
-    const tentativa = prompt("Passe de edição:");
-    if (tentativa == null) return;
-    if (tentativa !== C.passe) { alert("Passe incorreta."); return; }
-    state.admin = true;
-    $("#btnEditar").textContent = "🔓 A editar — clica para sair";
-    $("#editor").classList.remove("escondido");
-    renderEditor();
-  }
-
-  function sairEdicao() {
-    state.admin = false;
-    $("#btnEditar").textContent = "🔒 Modo edição";
-    $("#editor").classList.add("escondido");
-  }
-
   function atualizarContador() {
     const c = comp();
     const d = state.dados[state.compId];
-    const local = d._local ? " · ⚠️ a mostrar edições locais (ainda não guardadas no ficheiro)" : "";
-    $("#contador").textContent = `${c.divisao} · ${c.escalao} ${d.epoca || ""} · ${d.equipas.length} equipas${local}`;
+    $("#contador").textContent = `${c.divisao} · ${c.escalao} ${d.epoca || ""} · ${d.equipas.length} equipas`;
   }
 
   // ---------------------------------------------------------
@@ -337,34 +214,6 @@
   }
 
   // ---------------------------------------------------------
-  // Temas visuais
-  // ---------------------------------------------------------
-  function aplicarTema(id) {
-    const temas = C.temas || [];
-    const t = temas.find((x) => x.id === id) || temas[0];
-    if (!t) return;
-    $("#folhaTema").setAttribute("href", t.ficheiro);
-    localStorage.setItem("tema", t.id);
-  }
-
-  function initTema() {
-    const sel = $("#seletorTema");
-    const temas = C.temas || [];
-    if (!sel || !temas.length) return;
-    sel.innerHTML = "";
-    temas.forEach((t) => {
-      const opt = document.createElement("option");
-      opt.value = t.id;
-      opt.textContent = t.nome;
-      sel.appendChild(opt);
-    });
-    const guardado = localStorage.getItem("tema") || C.temaPorOmissao || temas[0].id;
-    sel.value = guardado;
-    aplicarTema(guardado);
-    sel.addEventListener("change", () => aplicarTema(sel.value));
-  }
-
-  // ---------------------------------------------------------
   // Arranque
   // ---------------------------------------------------------
   async function mudar() {
@@ -378,13 +227,11 @@
       return;
     }
     renderVista();
-    if (state.admin) renderEditor();
     atualizarContador();
   }
 
   function init() {
     $("#titulo").textContent = C.titulo;
-    initTema();
 
     const inicial = comp();
     preencherSelect($("#seletorEscalao"), unico(C.competicoes.map((c) => c.escalao)));
@@ -395,19 +242,6 @@
     const aoMudar = () => { resolverComp(); mudar(); };
     $("#seletorEscalao").addEventListener("change", aoMudar);
     $("#seletorDivisao").addEventListener("change", aoMudar);
-
-    $("#btnEditar").addEventListener("click", entrarEdicao);
-    $("#btnSair").addEventListener("click", sairEdicao);
-    $("#btnDescarregar").addEventListener("click", descarregar);
-    $("#btnRepor").addEventListener("click", reporDoFicheiro);
-    $("#btnAdd").addEventListener("click", () => {
-      const d = state.dados[state.compId];
-      d.equipas.push({ nome: "Nova equipa", localizacao: "", latitude: 40.0, equipaB: false, ilhas: false });
-      guardarLocal(state.compId);
-      renderEditor();
-      renderVista();
-      atualizarContador();
-    });
 
     mudar();
   }
