@@ -12,7 +12,8 @@
 
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--tinta); background: var(--papel); }
 
-.topo { color: var(--tinta); background: var(--papel); border-bottom: 1px solid var(--borda); }
+.topo { color: var(--tinta); background: var(--papel); }
+.barra-nav { background: var(--papel-2); border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); box-shadow: 0 2px 8px -6px rgba(35,32,25,.4); }
 #titulo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -.01em; color: var(--tinta); }
 .sub { color: var(--tinta-2); }
 .tag { font-family: 'Inter', sans-serif; }

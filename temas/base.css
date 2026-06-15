@@ -19,7 +19,7 @@ body {
 .escondido { display: none !important; }
 
 /* ----------------------------- TOPO ------------------------------------ */
-.topo { position: sticky; top: 0; z-index: 20; }
+.topo { }
 .topo-inner {
   max-width: 1200px; margin: 0 auto; padding: 11px 20px;
   display: flex; align-items: center; justify-content: space-between;
@@ -43,11 +43,21 @@ body {
 }
 .botao { font: inherit; font-size: .85rem; font-weight: 600; padding: 7px 13px; border-radius: 8px; cursor: pointer; white-space: nowrap; }
 
-/* tabs de navegação (Escalão / Divisão) */
-.campo-tabs { display: flex; flex-direction: column; gap: 5px; }
-.rotulo { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.grupo-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
-.tab { font: inherit; font-size: .85rem; font-weight: 600; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+/* barra de navegação dedicada (Escalão / Divisão) — fixa ao topo */
+.barra-nav { position: sticky; top: 0; z-index: 20; }
+.barra-inner {
+  max-width: 1200px; margin: 0 auto; padding: 12px 20px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.campo-tabs { display: flex; flex-direction: row; align-items: center; gap: 14px; }
+.rotulo { flex: 0 0 auto; min-width: 64px; font-size: .62rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.grupo-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tab { font: inherit; font-size: .92rem; font-weight: 600; padding: 9px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+@media (max-width: 640px) {
+  .campo-tabs { flex-direction: column; align-items: stretch; gap: 5px; }
+  .grupo-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .tab { padding: 10px 6px; text-align: center; }
+}
 
 /* --------------------------- CONTAINER --------------------------------- */
 .container { max-width: 1200px; margin: 0 auto; padding: 16px 20px 36px; }
