@@ -43,6 +43,12 @@ body {
 }
 .botao { font: inherit; font-size: .85rem; font-weight: 600; padding: 7px 13px; border-radius: 8px; cursor: pointer; white-space: nowrap; }
 
+/* tabs de navegação (Escalão / Divisão) */
+.campo-tabs { display: flex; flex-direction: column; gap: 5px; }
+.rotulo { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.grupo-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tab { font: inherit; font-size: .85rem; font-weight: 600; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+
 /* --------------------------- CONTAINER --------------------------------- */
 .container { max-width: 1200px; margin: 0 auto; padding: 16px 20px 36px; }
 .explicacao { margin: 0 0 14px; font-size: .85rem; max-width: 80ch; }

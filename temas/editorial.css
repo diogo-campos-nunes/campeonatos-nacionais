@@ -21,6 +21,14 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 .campo > span { color: var(--tinta-3); }
 .campo.destaque > span { color: var(--acento-2); }
+
+.rotulo { color: var(--tinta-3); }
+.tab {
+  color: var(--tinta-2); background: #fff; border: 1px solid var(--borda);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.tab:hover { background: var(--papel-2); }
+.tab[aria-selected="true"] { color: #fff; background: var(--acento); border-color: var(--acento); }
 .campo select {
   color: var(--tinta); background-color: #fff; border: 1px solid var(--borda);
   background-image: linear-gradient(45deg, transparent 50%, var(--tinta-2) 50%), linear-gradient(135deg, var(--tinta-2) 50%, transparent 50%);

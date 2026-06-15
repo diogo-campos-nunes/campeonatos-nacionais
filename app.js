@@ -193,24 +193,20 @@
   }
 
   // ---------------------------------------------------------
-  // Seletores Escalão / Divisão (dimensões independentes)
+  // Navegação por tabs — Escalão / Divisão (dimensões independentes)
   // ---------------------------------------------------------
-  function preencherSelect(sel, valores) {
-    sel.innerHTML = "";
+  function montarTabs(container, valores, ativo, aoEscolher) {
+    container.innerHTML = "";
     valores.forEach((v) => {
-      const opt = document.createElement("option");
-      opt.value = v;
-      opt.textContent = v;
-      sel.appendChild(opt);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "tab";
+      b.textContent = v;
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", v === ativo ? "true" : "false");
+      b.addEventListener("click", () => aoEscolher(v));
+      container.appendChild(b);
     });
-  }
-
-  function resolverComp() {
-    const esc = $("#seletorEscalao").value;
-    const div = $("#seletorDivisao").value;
-    const achada = C.competicoes.find((c) => c.escalao === esc && c.divisao === div);
-    if (achada) state.compId = achada.id;
-    return achada;
   }
 
   // ---------------------------------------------------------
@@ -234,15 +230,23 @@
     $("#titulo").textContent = C.titulo;
 
     const inicial = comp();
-    preencherSelect($("#seletorEscalao"), unico(C.competicoes.map((c) => c.escalao)));
-    preencherSelect($("#seletorDivisao"), unico(C.competicoes.map((c) => c.divisao)));
-    $("#seletorEscalao").value = inicial.escalao;
-    $("#seletorDivisao").value = inicial.divisao;
+    state.escalao = inicial.escalao;
+    state.divisao = inicial.divisao;
+    const escaloes = unico(C.competicoes.map((c) => c.escalao));
+    const divisoes = unico(C.competicoes.map((c) => c.divisao));
 
-    const aoMudar = () => { resolverComp(); mudar(); };
-    $("#seletorEscalao").addEventListener("change", aoMudar);
-    $("#seletorDivisao").addEventListener("change", aoMudar);
+    function aplicar() {
+      const achada = C.competicoes.find((c) => c.escalao === state.escalao && c.divisao === state.divisao);
+      if (achada) state.compId = achada.id;
+      desenharTabs();
+      mudar();
+    }
+    function desenharTabs() {
+      montarTabs($("#tabsEscalao"), escaloes, state.escalao, (v) => { state.escalao = v; aplicar(); });
+      montarTabs($("#tabsDivisao"), divisoes, state.divisao, (v) => { state.divisao = v; aplicar(); });
+    }
 
+    desenharTabs();
     mudar();
   }
 
