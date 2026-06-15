@@ -1,0 +1,166 @@
+{
+  "escalao": "Sub-19",
+  "epoca": "2026/27",
+  "equipas": [
+    {
+      "nome": "SC Braga",
+      "localizacao": "Braga",
+      "latitude": 41.562564,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/15_imgbank_1779291357.png"
+    },
+    {
+      "nome": "Gil Vicente",
+      "localizacao": "Barcelos",
+      "latitude": 41.531884,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/11_imgbank_1682582593.png"
+    },
+    {
+      "nome": "Vitória SC",
+      "localizacao": "Guimarães",
+      "latitude": 41.445429,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/18_imgbank_1691672368.png"
+    },
+    {
+      "nome": "Moreirense",
+      "localizacao": "Moreira de Cónegos",
+      "latitude": 41.378076,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/6_imgbank_1757064961.png"
+    },
+    {
+      "nome": "FC Famalicão",
+      "localizacao": "Vila Nova de Famalicão",
+      "latitude": 41.37665638,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2175_imgbank_1682583693.png"
+    },
+    {
+      "nome": "FC Vizela",
+      "localizacao": "Vizela",
+      "latitude": 41.376411,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2197_imgbank_1682583338.png"
+    },
+    {
+      "nome": "Rio Ave",
+      "localizacao": "Vila do Conde",
+      "latitude": 41.362374,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/31_imgbank_1682584600.png"
+    },
+    {
+      "nome": "FC Porto",
+      "localizacao": "Porto",
+      "latitude": 41.161761,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/9_imgbank_1728921003.png"
+    },
+    {
+      "nome": "Feirense",
+      "localizacao": "Santa Maria da Feira",
+      "latitude": 40.927826,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1728_imgbank_1682588314.png"
+    },
+    {
+      "nome": "Académico Viseu",
+      "localizacao": "Viseu",
+      "latitude": 40.659449,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2181_imgbank_1762193325.png"
+    },
+    {
+      "nome": "UD Leiria",
+      "localizacao": "Leiria",
+      "latitude": 39.749603,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/17_imgbank_1721993809.png"
+    },
+    {
+      "nome": "Torreense",
+      "localizacao": "Torres Vedras",
+      "latitude": 39.094878,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2178_imgbank_1682588244.png"
+    },
+    {
+      "nome": "CD Mafra",
+      "localizacao": "Mafra",
+      "latitude": 38.936388,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3696_imgbank_1682587890.png"
+    },
+    {
+      "nome": "FC Alverca",
+      "localizacao": "Alverca do Ribatejo",
+      "latitude": 38.89794075,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1_imgbank_1682589747.png"
+    },
+    {
+      "nome": "Santa Clara",
+      "localizacao": "Açores (aeroporto Lisboa)",
+      "latitude": 38.780211,
+      "equipaB": false,
+      "ilhas": true,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/32_imgbank_1720775732.png"
+    },
+    {
+      "nome": "Sporting",
+      "localizacao": "Lisboa",
+      "latitude": 38.7622,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/16_imgbank_1741687081.png"
+    },
+    {
+      "nome": "Benfica",
+      "localizacao": "Lisboa",
+      "latitude": 38.752736,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4_imgbank_1683238034.png"
+    },
+    {
+      "nome": "Oriental",
+      "localizacao": "Lisboa",
+      "latitude": 38.742279,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2176_imgbank_1712323859.png"
+    },
+    {
+      "nome": "Casa Pia AC",
+      "localizacao": "Lisboa",
+      "latitude": 38.737335,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2412_imgbank_1695724045.png"
+    },
+    {
+      "nome": "Farense",
+      "localizacao": "Faro",
+      "latitude": 37.023489,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/10_imgbank_1682585361.png"
+    }
+  ]
+}

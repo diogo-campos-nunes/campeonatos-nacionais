@@ -1,0 +1,89 @@
+/* ==========================================================================
+   TEMA: Vivo — moderno, colorido e amigável (Poppins), cantos arredondados.
+   Só cores/fontes/decoração; estrutura/densidade vem de base.css.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --roxo: #6d28d9; --rosa: #db2777; --turq: #0891b2; --sol: #f59e0b; --verde: #16a34a; --vermelho: #e11d48;
+  --tinta: #2a2440; --tinta-2: #6b6385; --tinta-3: #9a93b3;
+  --cartao: #fff; --borda: #ece8f5; --zebra: #faf8ff;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--tinta);
+  background:
+    radial-gradient(1100px 500px at 110% -10%, rgba(219,39,119,.10), transparent 60%),
+    radial-gradient(1000px 500px at -10% 110%, rgba(109,40,217,.10), transparent 55%),
+    #f5f2fb;
+  background-attachment: fixed;
+}
+
+.topo { color: #fff; background: linear-gradient(120deg, var(--roxo) 0%, var(--rosa) 100%); box-shadow: 0 8px 24px -12px rgba(109,40,217,.6); }
+#titulo { color: #fff; font-weight: 800; letter-spacing: -.01em; text-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.sub { color: rgba(255,255,255,.9); }
+.tag { color: #fff; font-weight: 700; }
+.tag.b { background: rgba(255,255,255,.25); }
+.tag.ilha { background: rgba(255,255,255,.25); }
+
+.campo > span { color: rgba(255,255,255,.85); }
+.campo.destaque > span { color: #fff; }
+.campo select {
+  color: var(--tinta); background-color: #fff; border: 2px solid transparent; border-radius: 12px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--roxo) 50%), linear-gradient(135deg, var(--roxo) 50%, transparent 50%);
+  background-position: calc(100% - 15px) 53%, calc(100% - 10px) 53%;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.campo.destaque select { box-shadow: 0 0 0 3px rgba(245,158,11,.5); }
+
+.botao { color: var(--tinta); background: #fff; border: 2px solid var(--borda); border-radius: 12px; transition: transform .12s, box-shadow .15s; }
+.botao:hover { transform: translateY(-2px); box-shadow: 0 8px 18px -8px rgba(109,40,217,.4); }
+.botao.primario { color: #fff; background: linear-gradient(120deg, var(--verde), #0d9488); border-color: transparent; }
+.botao.subtil { color: #fff; background: rgba(255,255,255,.18); border-color: transparent; }
+.botao.subtil:hover { background: rgba(255,255,255,.3); }
+.topo .botao { color: #fff; background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.4); }
+.topo .botao:hover { background: rgba(255,255,255,.32); }
+
+.explicacao { color: var(--tinta-2); }
+.explicacao strong { color: var(--roxo); }
+.aviso { border-radius: 14px; }
+.aviso.info { background: #f3ecff; border: 1px solid #ddc9ff; color: #5b21b6; }
+.aviso.alerta { background: #fff4e6; border: 1px solid #ffdca8; color: #92500a; }
+
+.serie { background: var(--cartao); border: 1px solid var(--borda); border-radius: 18px; box-shadow: 0 10px 26px -16px rgba(109,40,217,.35); transition: transform .15s, box-shadow .15s; }
+.serie:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -18px rgba(109,40,217,.5); }
+.serie > h2 { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.22); }
+
+.linha { border-bottom: 1px solid var(--borda); }
+.linha:nth-child(even) { background: var(--zebra); }
+.serie .linha:last-child { border-bottom: 0; }
+.linha:hover { background: #f3ecff; }
+.num { color: var(--tinta-3); font-weight: 700; }
+.nome { color: var(--tinta); }
+.nome small { background: #ede9f6; color: var(--tinta-2); }
+.meta { color: var(--tinta-2); }
+.lat { color: var(--roxo); background: rgba(109,40,217,.1); border-radius: 999px; padding: 1px 7px; }
+.linha.eqB { box-shadow: inset 3px 0 0 var(--rosa); }
+.linha.eqB .nome small { background: linear-gradient(120deg, var(--roxo), var(--rosa)); color: #fff; }
+.linha.eqIlha { box-shadow: inset 3px 0 0 var(--turq); }
+.linha.eqIlha .nome small { background: var(--turq); color: #fff; }
+
+.editor { background: var(--cartao); border: 1px solid var(--borda); border-radius: 18px; box-shadow: 0 10px 26px -16px rgba(109,40,217,.3); }
+.editor-barra h2 { color: var(--tinta); }
+.editor-barra h2 span { color: var(--roxo); }
+.editor-dica { color: var(--tinta-2); background: var(--zebra); border: 1px dashed var(--borda); border-radius: 12px; padding: 10px 12px; }
+.editor-dica strong { color: var(--tinta); }
+.editor-dica code { background: #fff; border: 1px solid var(--borda); border-radius: 6px; padding: 1px 5px; font-size: .85em; }
+.tabela-wrap { border: 1px solid var(--borda); }
+#tabelaEditor th { color: var(--tinta-2); background: var(--zebra); border-bottom: 2px solid var(--borda); }
+#tabelaEditor td { border-bottom: 1px solid var(--borda); }
+#tabelaEditor tbody tr:hover { background: #faf8ff; }
+#tabelaEditor input[type="text"], #tabelaEditor input[type="number"] { color: var(--tinta); background: #fff; border: 1px solid var(--borda); border-radius: 8px; }
+#tabelaEditor input:focus { outline: none; border-color: var(--roxo); box-shadow: 0 0 0 3px rgba(109,40,217,.18); }
+#tabelaEditor input[type="checkbox"] { accent-color: var(--roxo); }
+.remover { color: var(--vermelho); background: rgba(225,29,72,.08); border: 1px solid rgba(225,29,72,.25); border-radius: 8px; font-weight: 700; }
+.remover:hover { background: rgba(225,29,72,.16); }
+
+.rodape { color: var(--tinta-3); border-top: 1px solid var(--borda); }
+
+:focus-visible { outline: 2px solid var(--roxo); outline-offset: 2px; }

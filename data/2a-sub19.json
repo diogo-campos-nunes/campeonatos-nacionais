@@ -1,0 +1,390 @@
+{
+  "escalao": "Sub-19",
+  "epoca": "2026/27",
+  "equipas": [
+    {
+      "nome": "GD Chaves",
+      "localizacao": "Chaves",
+      "latitude": 41.747218,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/20_imgbank_1682584093.png"
+    },
+    {
+      "nome": "Paços de Ferreira",
+      "localizacao": "Paços de Ferreira",
+      "latitude": 41.270886,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/13_imgbank_1682583483.png"
+    },
+    {
+      "nome": "CD Tondela",
+      "localizacao": "Tondela",
+      "latitude": 40.511508,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4336_imgbank_1682585219.png"
+    },
+    {
+      "nome": "Belenenses",
+      "localizacao": "Lisboa",
+      "latitude": 38.704033,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3_imgbank_1682589777.png"
+    },
+    {
+      "nome": "Nogueirense FC",
+      "localizacao": "Nogueira - Maia",
+      "latitude": 41.229513,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3615_imgbank.png"
+    },
+    {
+      "nome": "AD Sanjoanense",
+      "localizacao": "São João da Madeira",
+      "latitude": 40.897959,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2185_imgbank_1683026338.png"
+    },
+    {
+      "nome": "Vitória FC",
+      "localizacao": "Setúbal",
+      "latitude": 38.524589,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/35_imgbank_1683027153.png"
+    },
+    {
+      "nome": "Marinhas",
+      "localizacao": "Esposende",
+      "latitude": 41.559444,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/6391_imgbank.png"
+    },
+    {
+      "nome": "Santa Maria FC",
+      "localizacao": "Barcelos",
+      "latitude": 41.558854,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3646_imgbank.png"
+    },
+    {
+      "nome": "Varzim",
+      "localizacao": "Póvoa de Varzim",
+      "latitude": 41.387758,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/36_imgbank_1683038512.png"
+    },
+    {
+      "nome": "AVS",
+      "localizacao": "Santo Tirso",
+      "latitude": 41.36937,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/296012_imgbank_1730118268.png"
+    },
+    {
+      "nome": "Lusitânia de Lourosa",
+      "localizacao": "Lourosa",
+      "latitude": 40.987578,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3599_imgbank_1683304198.png"
+    },
+    {
+      "nome": "Nacional",
+      "localizacao": "Madeira (aeroporto Porto)",
+      "latitude": 41.2481,
+      "equipaB": false,
+      "ilhas": true,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/27_imgbank_1682588574.png"
+    },
+    {
+      "nome": "Gondomar SC",
+      "localizacao": "Gondomar",
+      "latitude": 41.134668,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3590_imgbank_1683279448.png"
+    },
+    {
+      "nome": "Freamunde",
+      "localizacao": "Paços de Ferreira",
+      "latitude": 41.276451,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1173_imgbank.png"
+    },
+    {
+      "nome": "CD Gouveia",
+      "localizacao": "Gouveia",
+      "latitude": 40.492985,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4344_imgbank.png"
+    },
+    {
+      "nome": "Académica OAF",
+      "localizacao": "Coimbra",
+      "latitude": 40.227197,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/19_imgbank_1752061481.png"
+    },
+    {
+      "nome": "Beira-Mar",
+      "localizacao": "Aveiro",
+      "latitude": 40.643399,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2_imgbank_1683209128.png"
+    },
+    {
+      "nome": "Marialvas",
+      "localizacao": "Cantanhede",
+      "latitude": 40.343808,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4345_imgbank_1730197788.png"
+    },
+    {
+      "nome": "Atlético CP",
+      "localizacao": "Lisboa",
+      "latitude": 38.709452,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2170_imgbank_1741690587.png"
+    },
+    {
+      "nome": "Estoril Praia",
+      "localizacao": "Estoril",
+      "latitude": 38.7172063,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1734_imgbank_1682584220.png"
+    },
+    {
+      "nome": "Alcanenense",
+      "localizacao": "Alcanena",
+      "latitude": 39.457328,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4010_imgbank.png"
+    },
+    {
+      "nome": "O Elvas",
+      "localizacao": "Elvas",
+      "latitude": 38.879273,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2180_imgbank_1750951096.png"
+    },
+    {
+      "nome": "SC Lusitânia",
+      "localizacao": "Açores (aeroporto Lisboa)",
+      "latitude": 38.780211,
+      "equipaB": false,
+      "ilhas": true,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3601_imgbank_1697792345.png"
+    },
+    {
+      "nome": "Amora FC",
+      "localizacao": "Seixal",
+      "latitude": 38.632993,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2183_imgbank_1683026602.png"
+    },
+    {
+      "nome": "Louletano",
+      "localizacao": "Loulé",
+      "latitude": 37.137975,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3596_imgbank_1719413637.png"
+    },
+    {
+      "nome": "Comércio e Indústria",
+      "localizacao": "Setúbal",
+      "latitude": 38.523809,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/6529_imgbank_1733843444.png"
+    },
+    {
+      "nome": "Juventude Évora",
+      "localizacao": "Évora",
+      "latitude": 38.56104,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3594_imgbank_1758120831.png"
+    },
+    {
+      "nome": "Portimonense",
+      "localizacao": "Portimão",
+      "latitude": 37.137535,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/33_imgbank_1773676628.png"
+    },
+    {
+      "nome": "CD Arrifanense",
+      "localizacao": "Santa Maria da Feira",
+      "latitude": 40.917486,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3556_imgbank.png"
+    },
+    {
+      "nome": "Moura AC",
+      "localizacao": "Moura",
+      "latitude": 38.14047,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3614_imgbank_1729088692.png"
+    },
+    {
+      "nome": "Moreirense B",
+      "localizacao": "Moreira de Cónegos",
+      "latitude": 41.378076,
+      "equipaB": true,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/6_imgbank_1757064961.png"
+    },
+    {
+      "nome": "SC Mirandela",
+      "localizacao": "Mirandela",
+      "latitude": 41.483936,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3608_imgbank_1699891718.png"
+    },
+    {
+      "nome": "Sertanense",
+      "localizacao": "Sertã",
+      "latitude": 39.797534,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3652_imgbank_1683305438.png"
+    },
+    {
+      "nome": "União 1919 B",
+      "localizacao": "Coimbra",
+      "latitude": 40.206453,
+      "equipaB": true,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/208772_imgbank_1733843787.png"
+    },
+    {
+      "nome": "Lusitano GC",
+      "localizacao": "Évora",
+      "latitude": 38.56303,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2173_imgbank_1754406112.png"
+    },
+    {
+      "nome": "CDR Quarteirense",
+      "localizacao": "Quarteira",
+      "latitude": 37.070353,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3631_imgbank.png"
+    },
+    {
+      "nome": "GD Trancoso",
+      "localizacao": "Trancoso",
+      "latitude": 40.782139,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/6839_imgbank.png"
+    },
+    {
+      "nome": "Caldas SC",
+      "localizacao": "Caldas da Rainha",
+      "latitude": 39.406998,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2182_imgbank_1683026695.png"
+    },
+    {
+      "nome": "Est. Amadora",
+      "localizacao": "Amadora",
+      "latitude": 38.752062,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/253884_imgbank_1755880629.png"
+    },
+    {
+      "nome": "AC Arronches",
+      "localizacao": "Arronches",
+      "latitude": 39.121134,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/45/52545_logo_ac_arronches_20260218182852.png"
+    },
+    {
+      "nome": "Leixões",
+      "localizacao": "Matosinhos",
+      "latitude": 41.180946,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1727_imgbank_1755598738.png"
+    },
+    {
+      "nome": "Ac. Santarém",
+      "localizacao": "Santarém",
+      "latitude": 39.2345915,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/10033_imgbank.png"
+    },
+    {
+      "nome": "Olímpico Montijo",
+      "localizacao": "Montijo",
+      "latitude": 38.706567,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/11139_imgbank.png"
+    },
+    {
+      "nome": "AD Limianos",
+      "localizacao": "Ponte de Lima",
+      "latitude": 41.755525,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/5681_imgbank_1758253270.png"
+    },
+    {
+      "nome": "ADC Constantim",
+      "localizacao": "Vila Real",
+      "latitude": 41.279741,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/15253_imgbank.png"
+    },
+    {
+      "nome": "Académico Viseu B",
+      "localizacao": "Viseu",
+      "latitude": 40.659449,
+      "equipaB": true,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2181_imgbank_1762193325.png"
+    },
+    {
+      "nome": "FC Lagares",
+      "localizacao": "Felgueiras",
+      "latitude": 41.365901,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/35907_imgbank.png"
+    }
+  ]
+}

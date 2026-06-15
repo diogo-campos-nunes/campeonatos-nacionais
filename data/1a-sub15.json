@@ -1,0 +1,166 @@
+{
+  "escalao": "Sub-15",
+  "epoca": "2026/27",
+  "equipas": [
+    {
+      "nome": "SC Braga",
+      "localizacao": "Braga",
+      "latitude": 41.562564,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/15_imgbank_1779291357.png"
+    },
+    {
+      "nome": "Gil Vicente",
+      "localizacao": "Barcelos",
+      "latitude": 41.531884,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/11_imgbank_1682582593.png"
+    },
+    {
+      "nome": "Vitória SC",
+      "localizacao": "Guimarães",
+      "latitude": 41.445429,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/18_imgbank_1691672368.png"
+    },
+    {
+      "nome": "FC Famalicão",
+      "localizacao": "Vila Nova de Famalicão",
+      "latitude": 41.37665638,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/2175_imgbank_1682583693.png"
+    },
+    {
+      "nome": "Rio Ave",
+      "localizacao": "Vila do Conde",
+      "latitude": 41.362374,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/31_imgbank_1682584600.png"
+    },
+    {
+      "nome": "Paços de Ferreira",
+      "localizacao": "Paços de Ferreira",
+      "latitude": 41.270886,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/13_imgbank_1682583483.png"
+    },
+    {
+      "nome": "FC Porto",
+      "localizacao": "Porto",
+      "latitude": 41.161761,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/9_imgbank_1728921003.png"
+    },
+    {
+      "nome": "Feirense",
+      "localizacao": "Santa Maria da Feira",
+      "latitude": 40.927826,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1728_imgbank_1682588314.png"
+    },
+    {
+      "nome": "Taboeira",
+      "localizacao": "Aveiro",
+      "latitude": 40.652806,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/15911_imgbank.png"
+    },
+    {
+      "nome": "CD Tondela",
+      "localizacao": "Tondela",
+      "latitude": 40.511508,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4336_imgbank_1682585219.png"
+    },
+    {
+      "nome": "Ançã",
+      "localizacao": "Ançã",
+      "latitude": 40.2697,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/6491_imgbank.png"
+    },
+    {
+      "nome": "Ac. Santarém",
+      "localizacao": "Santarém",
+      "latitude": 39.2345915,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/10033_imgbank.png"
+    },
+    {
+      "nome": "FC Alverca",
+      "localizacao": "Alverca do Ribatejo",
+      "latitude": 38.89794075,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1_imgbank_1682589747.png"
+    },
+    {
+      "nome": "Sporting",
+      "localizacao": "Lisboa",
+      "latitude": 38.7622,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/16_imgbank_1741687081.png"
+    },
+    {
+      "nome": "Benfica",
+      "localizacao": "Lisboa",
+      "latitude": 38.752736,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/4_imgbank_1683238034.png"
+    },
+    {
+      "nome": "Estoril Praia",
+      "localizacao": "Estoril",
+      "latitude": 38.7172063,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/1734_imgbank_1682584220.png"
+    },
+    {
+      "nome": "Belenenses",
+      "localizacao": "Lisboa",
+      "latitude": 38.704033,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3_imgbank_1682589777.png"
+    },
+    {
+      "nome": "Vitória FC",
+      "localizacao": "Setúbal",
+      "latitude": 38.524589,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/35_imgbank_1683027153.png"
+    },
+    {
+      "nome": "Portimonense",
+      "localizacao": "Portimão",
+      "latitude": 37.137535,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/33_imgbank_1773676628.png"
+    },
+    {
+      "nome": "Farense",
+      "localizacao": "Faro",
+      "latitude": 37.023489,
+      "equipaB": false,
+      "ilhas": false,
+      "logo": "https://cdn-img.staticzz.com/img/logos/equipas/10_imgbank_1682585361.png"
+    }
+  ]
+}
