@@ -4,7 +4,8 @@
   const C = window.CONFIG;
   const $ = (sel, el = document) => el.querySelector(sel);
   const SERIES = ["A", "B", "C", "D", "E", "F", "G", "H"];
-  const PALETA = ["#1565C0", "#2E7D32", "#F9A825", "#C62828", "#6A1B9A", "#00838F", "#EF6C00", "#558B2F"];
+  // Paleta terrosa a condizer com o tema Editorial (terracota, ardósia, azeitona, ferrugem…)
+  const PALETA = ["#b4532a", "#4d6470", "#8a7a35", "#9c5236", "#5e5566", "#46685e", "#a0692c", "#5a5040"];
 
   const state = {
     compId: C.competicoes[0].id,
