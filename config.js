@@ -17,6 +17,9 @@ window.CONFIG = {
   //    "indefinido" -> mostra só a lista ordenada (sem dividir em séries)
   //  formato.nomesSeries (opcional) -> nomes das séries (ex.: ["Norte","Sul"]).
   //                                    Por omissão usa A, B, C, D...
+  //  formato.regraB (opcional) -> regra das equipas B:
+  //    omisso/"proporcional" -> distribuídas igualmente pelas séries (regra normal)
+  //    "geografica"          -> ficam onde a latitude as coloca (máx. 2 por série)
   //
   competicoes: [
     // ---- 1ª Divisão (regra geográfica: 20 clubes -> 2 séries Norte/Sul de 10) ----
@@ -29,7 +32,7 @@ window.CONFIG = {
 
     // ---- 2ª Divisão (regra geográfica 4×12) ----
     { id: "2a-sub15", divisao: "2ª Divisão", escalao: "Sub-15", ficheiro: "data/2a-sub15.json",
-      formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12 } },
+      formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12, regraB: "geografica" } },
     { id: "2a-sub17", divisao: "2ª Divisão", escalao: "Sub-17", ficheiro: "data/2a-sub17.json",
       formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12 } },
     { id: "2a-sub19", divisao: "2ª Divisão", escalao: "Sub-19", ficheiro: "data/2a-sub19.json",
