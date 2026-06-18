@@ -275,10 +275,10 @@
       "logo": "https://cdn-img.staticzz.com/img/logos/equipas/3652_imgbank_1683305438.png"
     },
     {
-      "nome": "União 1919 B",
+      "nome": "União 1919",
       "localizacao": "Coimbra",
       "latitude": 40.206453,
-      "equipaB": true,
+      "equipaB": false,
       "ilhas": false,
       "logo": "https://cdn-img.staticzz.com/img/logos/equipas/208772_imgbank_1733843787.png"
     },
