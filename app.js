@@ -172,10 +172,10 @@
   function linhaHTML(e) {
     const cls = e.equipaB ? "linha eqB" : e.ilhas ? "linha eqIlha" : "linha";
     const nomeMostrar = e.equipaB ? e.nome.replace(/\s+B$/, "") : e.nome;
-    const tag = e.equipaB ? `<small>[B]</small>` : e.ilhas ? `<small>•</small>` : "";
+    const tag = e.equipaB ? `<small class="tag">B</small>` : e.ilhas ? `<small class="tag">•</small>` : "";
     return `<div class="${cls}">
       ${crestHTML(e)}
-      <span class="nome">${escapar(nomeMostrar)} ${tag}</span>
+      <span class="nome-wrap"><span class="nome">${escapar(nomeMostrar)}</span>${tag}</span>
       <span class="meta">${escapar(e.localizacao)} &nbsp;·&nbsp; <span class="lat">${Number(e.latitude).toFixed(4)}</span></span>
     </div>`;
   }

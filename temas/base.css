@@ -90,12 +90,13 @@ body {
   border-radius: 6px; font-size: .58rem; font-weight: 800; letter-spacing: .01em;
   background: #e6e8ee; color: #5b6472;
 }
+.nome-wrap { display: flex; align-items: center; min-width: 0; }
 .nome {
   min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   font-size: .87rem; font-weight: 500;
 }
-.nome small {
-  display: inline-block; font-size: .62rem; font-weight: 700; padding: 1px 6px;
+.tag {
+  flex: none; display: inline-block; font-size: .62rem; font-weight: 700; padding: 1px 6px;
   border-radius: 999px; margin-left: 5px; vertical-align: middle; white-space: nowrap;
 }
 .meta { white-space: nowrap; font-size: .73rem; }

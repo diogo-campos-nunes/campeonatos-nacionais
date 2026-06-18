@@ -59,13 +59,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .linha:hover { background: var(--papel-2); }
 .num { color: var(--tinta-3); font-family: 'Fraunces', Georgia, serif; font-weight: 500; }
 .nome { color: var(--tinta); }
-.nome small { background: var(--papel-2); color: var(--tinta-2); }
+.tag { background: var(--papel-2); color: var(--tinta-2); }
 .meta { color: var(--tinta-2); }
 .lat { color: var(--acento-2); }
 .linha.eqB { box-shadow: inset 3px 0 0 var(--acento); }
-.linha.eqB .nome small { background: rgba(180,83,42,.14); color: var(--acento-2); }
+.linha.eqB .tag { background: rgba(180,83,42,.14); color: var(--acento-2); }
 .linha.eqIlha { box-shadow: inset 3px 0 0 var(--tinta-3); }
-.linha.eqIlha .nome small { background: var(--papel-2); color: var(--tinta-2); }
+.linha.eqIlha .tag { background: var(--papel-2); color: var(--tinta-2); }
 
 .editor { background: var(--cartao); border: 1px solid var(--borda); box-shadow: 0 1px 2px rgba(35,32,25,.04); }
 .editor-barra h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; color: var(--tinta); }
