@@ -17,12 +17,14 @@ window.CONFIG = {
   //    "indefinido" -> mostra só a lista ordenada (sem dividir em séries)
   //  formato.nomesSeries (opcional) -> nomes das séries (ex.: ["Norte","Sul"]).
   //                                    Por omissão usa A, B, C, D...
-  //  formato.regraB (opcional) -> regra das equipas B:
-  //    omisso/"proporcional" -> distribuídas igualmente pelas séries (regra normal)
-  //    "geografica"          -> ficam onde a latitude as coloca (máx. 2 por série)
+  //  formato.regraB (opcional) -> reajuste das equipas B (FORMATO FPF 2026/27):
+  //    omisso        -> geográfico puro (ficam onde a latitude as coloca).
+  //                     1ª Divisão (todos) e 2ª Div Sub-19 não têm regra de B.
+  //    { min, max }  -> reajuste para garantir mín./máx. equipas B por série.
+  //                     2ª Div Sub-15 e Sub-17 -> { min: 1, max: 3 }.
   //
   competicoes: [
-    // ---- 1ª Divisão (regra geográfica: 20 clubes -> 2 séries Norte/Sul de 10) ----
+    // ---- 1ª Divisão (20 clubes -> 2 séries Norte/Sul de 10; sem equipas B) ----
     { id: "1a-sub15", divisao: "1ª Divisão", escalao: "Sub-15", ficheiro: "data/1a-sub15.json",
       formato: { tipo: "geografico", numSeries: 2, tamanhoSerie: 10, nomesSeries: ["Norte", "Sul"] } },
     { id: "1a-sub17", divisao: "1ª Divisão", escalao: "Sub-17", ficheiro: "data/1a-sub17.json",
@@ -30,11 +32,13 @@ window.CONFIG = {
     { id: "1a-sub19", divisao: "1ª Divisão", escalao: "Sub-19", ficheiro: "data/1a-sub19.json",
       formato: { tipo: "geografico", numSeries: 2, tamanhoSerie: 10, nomesSeries: ["Norte", "Sul"] } },
 
-    // ---- 2ª Divisão (regra geográfica 4×12) ----
+    // ---- 2ª Divisão (4 séries de 12) ----
+    // Sub-15 e Sub-17: equipas B com mín. 1 / máx. 3 por série (ponto 7 do formato).
     { id: "2a-sub15", divisao: "2ª Divisão", escalao: "Sub-15", ficheiro: "data/2a-sub15.json",
-      formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12, regraB: "geografica" } },
+      formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12, regraB: { min: 1, max: 3 } } },
     { id: "2a-sub17", divisao: "2ª Divisão", escalao: "Sub-17", ficheiro: "data/2a-sub17.json",
-      formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12 } },
+      formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12, regraB: { min: 1, max: 3 } } },
+    // Sub-19: o formato não tem cláusula de equipas B -> geográfico puro.
     { id: "2a-sub19", divisao: "2ª Divisão", escalao: "Sub-19", ficheiro: "data/2a-sub19.json",
       formato: { tipo: "geografico", numSeries: 4, tamanhoSerie: 12 } }
   ],

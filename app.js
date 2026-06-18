@@ -33,86 +33,67 @@
     return [...equipas].sort((a, b) => b.latitude - a.latitude);
   }
 
-  // Tecto de equipas B por série na regra geográfica.
-  const MAX_B = 2;
+  // Move uma equipa B da série `de` para a série `para` (adjacente), trocando-a
+  // por uma equipa não-B. Escolhe sempre a B mais próxima da fronteira entre as
+  // duas séries, para que o ajuste seja geograficamente mínimo. Devolve true se
+  // a troca foi feita.
+  function moverB(bandas, de, para, reord) {
+    let bi, ni;
+    if (para > de) {
+      // empurrar para Sul: a B mais a sul de `de` <-> a não-B mais a norte de `para`
+      bi = -1; for (let k = bandas[de].length - 1; k >= 0; k--) if (bandas[de][k].equipaB) { bi = k; break; }
+      ni = bandas[para].findIndex((e) => !e.equipaB);
+    } else {
+      // puxar para Norte: a B mais a norte de `de` <-> a não-B mais a sul de `para`
+      bi = bandas[de].findIndex((e) => e.equipaB);
+      ni = -1; for (let k = bandas[para].length - 1; k >= 0; k--) if (!bandas[para][k].equipaB) { ni = k; break; }
+    }
+    if (bi < 0 || ni < 0) return false;
+    const tmp = bandas[de][bi]; bandas[de][bi] = bandas[para][ni]; bandas[para][ni] = tmp;
+    reord(bandas[de]); reord(bandas[para]);
+    return true;
+  }
 
   function calcularSeries(equipas, formato) {
     const ordenadas = ordenar(equipas);
     const nS = formato.numSeries, t = formato.tamanhoSerie;
     const nomes = formato.nomesSeries || SERIES.slice(0, nS);
 
-    // Bandas geográficas iniciais (corte por latitude N->S)
+    // Corte geográfico puro (latitude N->S). É o comportamento base de todas as
+    // competições: as equipas B ficam onde a geografia as coloca.
     const bandas = nomes.map((_, i) => ordenadas.slice(i * t, (i + 1) * t).slice());
     const extra = ordenadas.slice(nS * t);
 
     const reord = (b) => b.sort((a, c) => c.latitude - a.latitude);
     const cnt = () => bandas.map((b) => b.filter((e) => e.equipaB).length);
 
-    if (formato.regraB === "geografica") {
-      // Regra geográfica pura: as equipas B ficam onde a latitude as coloca.
-      // Único ajuste: no máximo MAX_B equipas B por série — o excedente é
-      // empurrado para a série vizinha com espaço (a B mais próxima da
-      // fronteira, preferindo o Sul).
+    // Reajuste das equipas B (só nas competições com regra, ex.: 2ª Div Sub-15 e
+    // Sub-17 -> { min: 1, max: 3 }). O regulamento manda distribuí-las pela
+    // ordem norte-sul e reajustar para garantir um mínimo e um máximo por série.
+    if (formato.regraB && (formato.regraB.min != null || formato.regraB.max != null)) {
+      const minB = formato.regraB.min != null ? formato.regraB.min : 0;
+      const maxB = formato.regraB.max != null ? formato.regraB.max : Infinity;
       let guard = 0;
       while (guard++ < 1000) {
         let changed = false;
-        const c = cnt();
-        for (let i = 0; i < nS; i++) {
-          if (c[i] <= MAX_B) continue;
-          const destino = [i + 1, i - 1].find((j) => j >= 0 && j < nS && cnt()[j] < MAX_B);
-          if (destino == null) continue; // sem vizinho com espaço
-          let bi, ni;
-          if (destino > i) {
-            bi = -1; for (let k = bandas[i].length - 1; k >= 0; k--) if (bandas[i][k].equipaB) { bi = k; break; }
-            ni = bandas[destino].findIndex((e) => !e.equipaB);
-          } else {
-            bi = bandas[i].findIndex((e) => e.equipaB);
-            ni = -1; for (let k = bandas[destino].length - 1; k >= 0; k--) if (!bandas[destino][k].equipaB) { ni = k; break; }
-          }
-          if (bi >= 0 && ni >= 0) {
-            const tmp = bandas[i][bi]; bandas[i][bi] = bandas[destino][ni]; bandas[destino][ni] = tmp;
-            reord(bandas[i]); reord(bandas[destino]); changed = true;
-          }
-        }
-        if (!changed) break;
-      }
-    } else {
-      // Regra normal (proporcional): equipas B distribuídas igualmente pelas
-      // séries. Quando o nº não é divisível, as séries mais a NORTE ficam
-      // com mais (regulamento).
-      const nb = bandas.reduce((s, b) => s + b.filter((e) => e.equipaB).length, 0);
-      const base = Math.floor(nb / nS), rem = nb % nS;
-      const desired = nomes.map((_, i) => base + (i < rem ? 1 : 0));
-
-      let guard = 0;
-      while (guard++ < 1000) {
-        const c = cnt();
-        if (nomes.every((_, i) => c[i] === desired[i])) break;
-        let changed = false;
-        // empurrar excedente de B para sul
-        for (let i = 0; i < nS - 1; i++) {
-          const cc = cnt();
-          if (cc[i] > desired[i] && cc.slice(i + 1).some((v, k) => v < desired[i + 1 + k])) {
-            let bi = -1; for (let k = bandas[i].length - 1; k >= 0; k--) if (bandas[i][k].equipaB) { bi = k; break; }
-            let ni = bandas[i + 1].findIndex((e) => !e.equipaB);
-            if (bi >= 0 && ni >= 0) {
-              const tmp = bandas[i][bi]; bandas[i][bi] = bandas[i + 1][ni]; bandas[i + 1][ni] = tmp;
-              reord(bandas[i]); reord(bandas[i + 1]); changed = true;
-            }
-          }
-        }
-        // puxar excedente de B para norte
-        for (let i = nS - 2; i >= 0; i--) {
-          const cc = cnt();
-          if (cc[i + 1] > desired[i + 1] && cc.slice(0, i + 1).some((v, k) => v < desired[k])) {
-            let bi = bandas[i + 1].findIndex((e) => e.equipaB);
-            let ni = -1; for (let k = bandas[i].length - 1; k >= 0; k--) if (!bandas[i][k].equipaB) { ni = k; break; }
-            if (bi >= 0 && ni >= 0) {
-              const tmp = bandas[i + 1][bi]; bandas[i + 1][bi] = bandas[i][ni]; bandas[i][ni] = tmp;
-              reord(bandas[i]); reord(bandas[i + 1]); changed = true;
-            }
-          }
-        }
+        // 1) Excessos: série acima do máximo empurra a B excedente para o
+        //    vizinho com menos B (desempate para Sul).
+        cnt().forEach((v, i) => {
+          if (v <= maxB) return;
+          const dest = [i + 1, i - 1]
+            .filter((j) => j >= 0 && j < nS && cnt()[j] < maxB)
+            .sort((a, b) => cnt()[a] - cnt()[b] || a - b)[0];
+          if (dest != null && moverB(bandas, i, dest, reord)) changed = true;
+        });
+        // 2) Défices: série abaixo do mínimo puxa uma B do vizinho com mais B
+        //    (best-effort — pode ser impossível se não houver B suficientes).
+        cnt().forEach((v, i) => {
+          if (v >= minB) return;
+          const orig = [i + 1, i - 1]
+            .filter((j) => j >= 0 && j < nS && cnt()[j] > minB)
+            .sort((a, b) => cnt()[b] - cnt()[a] || a - b)[0];
+          if (orig != null && moverB(bandas, orig, i, reord)) changed = true;
+        });
         if (!changed) break;
       }
     }
